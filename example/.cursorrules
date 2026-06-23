@@ -1,9 +1,0 @@
-# Cursor rules bridge
-
-Read `AGENTS.md` first. This file intentionally stays short so Cursor-specific rules do not drift away from the shared AI Agent instructions.
-
-- Follow root `AGENTS.md` and the nearest nested `AGENTS.md`.
-- Keep generated edits consistent with Vue 3 + NestJS + pnpm workspace boundaries documented in `docs/`.
-- Do not duplicate long project rules here. Update `AGENTS.md` or `docs/agents/*` instead.
-- Treat commands in this example as target-project examples, not commands for the current skill repository.
-

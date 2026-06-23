@@ -60,19 +60,13 @@ example/
       api-design.md
       controller-conventions.md
       frontend-architecture.md
-      ref-higress.md
-      ref-nacos.md
       ref-pro-components.md
       ref-other-product-backend.md
       ref-other-product-frontend.md
-      ref-himarket.md
   reference-projects/
-    higress/
-    nacos/
     pro-components/
     other-product-backend/
     other-product-frontend/
-    himarket/
 ```
 
 ## 使用方式
@@ -83,4 +77,3 @@ example/
 - 用 `package.json`、`Makefile`、CI、脚本和源码中的真实事实替换示例内容。
 - 只保留违反后会写错代码的硬规则。
 - 把教程、长示例和模块深潜放入 `docs/`，根 `AGENTS.md` 只保留链接。
-

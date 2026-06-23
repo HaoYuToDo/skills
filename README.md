@@ -18,7 +18,7 @@ skills/                  # GitHub 仓库根目录；本地 checkout 名称可以
     reference-projects/     # 只读参考项目示例
 ```
 
-## Skill
+## agents-md-maintainer
 
 `skills/agents-md-maintainer/SKILL.md` 是这个仓库的主要产物。它定义了 Codex 在维护 `AGENTS.md` 时应该遵循的流程、模板、拆分规则和检查清单。
 

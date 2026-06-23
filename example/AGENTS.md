@@ -2,8 +2,6 @@
 
 这是一个 Vue 3 + NestJS 项目的 AI Coding 指令示例。仓库假设采用 `web/` 前端、`server/` 后端、`user-guide/` 用户手册、`scripts/` 启动脚本、`docs/design-docs/` 设计细节、`reference-projects/` 只读参考项目结构。根文件只保留 AI 不知道就容易写错代码的项目地图、硬规则、验证闭环和文档导航；长教程、接口细节和模块深潜都放在 `docs/`。
 
-> 注意：本目录是 `agents-md-maintainer` skill 的文档示例，不是可运行项目。以下命令均为目标项目示例命令，真实项目必须从 `Makefile`、`package.json`、CI、脚本和源码中核对后再写入。
-
 ## 1. 项目概述
 
 本项目示例模拟一个前后端分离应用：前端位于 `web/`，使用 Vue 3 + TypeScript + Vite + Vue Router + Pinia 承载页面、组件、路由和状态管理；后端位于 `server/`，使用 NestJS + TypeScript 提供 REST API、认证鉴权、DTO validation、业务服务和数据访问；`user-guide/` 存放面向用户的 Markdown 手册；`docs/` 存放架构、开发、接口和参考项目说明。
@@ -25,18 +23,18 @@ project-root/
 
 这些是目标项目示例命令。真实项目必须以 `Makefile`、`package.json`、脚本和 CI 为准。
 
-| 目的 | 命令 |
-| --- | --- |
-| 安装依赖 | `pnpm install` |
-| 启动前端 | `scripts/start-web.sh` |
-| 启动后端 | `scripts/start-server.sh` |
-| 依赖边界检查 | `scripts/lint-deps.sh` |
-| 架构检查 | `make lint-arch` |
-| 格式化检查 | `make lint-format` |
-| 自动格式化 | `make format` |
-| 构建 | `make build` |
-| 测试 | `make test` |
-| 全量检查 | `make check` |
+| 目的         | 命令                      |
+| ------------ | ------------------------- |
+| 安装依赖     | `pnpm install`            |
+| 启动前端     | `scripts/start-web.sh`    |
+| 启动后端     | `scripts/start-server.sh` |
+| 依赖边界检查 | `scripts/lint-deps.sh`    |
+| 架构检查     | `make lint-arch`          |
+| 格式化检查   | `make lint-format`        |
+| 自动格式化   | `make format`             |
+| 构建         | `make build`              |
+| 测试         | `make test`               |
+| 全量检查     | `make check`              |
 
 环境变量示例位置见 `docs/development.md`。如果真实项目使用 `~/.<project>_env`、`.env.local`、`server/.env.local` 或 `web/.env.local`，必须在 `docs/development.md` 写清楚加载优先级。不要提交 token、cookie、私钥、生产数据库连接串或个人本地路径。
 
@@ -67,7 +65,7 @@ server/src/
 - 鉴权层：guard/filter/interceptor/pipe 统一处理认证、权限、异常和响应包装。
 - 契约层：DTO、错误码和响应结构必须和前端 API client、用户手册同步。
 
-详见 `docs/architecture.md` 和 `docs/design-docs/controller-conventions.md`。
+详见 `docs/architecture-backend.md` 和 `docs/design-docs/controller-conventions.md`。
 
 ## 4. 前端架构
 
@@ -92,13 +90,13 @@ web/src/
 - Pinia 只承载跨页面状态；页面局部 loading、弹窗开关和表单草稿留在组件或 composable。
 - API 字段、错误码和响应格式以后端 DTO、共享类型或 schema 为准，禁止在组件里复制 DTO。
 
-详见 `docs/design-docs/frontend-architecture.md`。
+详见 `docs/architecture-frontend.md`。
 
 ## 5. 关键约定
 
 - 不要编造命令。新增或修改命令前先查 `Makefile`、`package.json`、`scripts/`、CI 和 README。
 - 不要把根 `AGENTS.md` 写成教程；长示例、curl 集合、模块细节放入 `docs/` 后在根文件链接。
-- 前端页面不直接请求后端；所有 HTTP 调用必须经过 `web/src/api/*`，详见 `docs/design-docs/frontend-architecture.md`。
+- 前端页面不直接请求后端；所有 HTTP 调用必须经过 `web/src/api/*`，详见 `docs/architecture-frontend.md`。
 - Vue 组件使用 Composition API 和 `<script setup lang="ts">`；props/emits 必须 typed，复杂逻辑抽到 composable。
 - Pinia store 只承载跨页面状态；页面局部状态不要提升到全局。
 - NestJS Controller 只处理路由、参数、DTO 和响应码；业务规则放 Service，数据库访问放 Repository/DAO，详见 `docs/design-docs/controller-conventions.md`。
@@ -132,15 +130,15 @@ curl -i \
 
 ## 7. 质量检查
 
-| 检查 | 命令 | 什么时候跑 |
-| --- | --- | --- |
-| 依赖边界 | `scripts/lint-deps.sh` | 修改 `server/`、`web/` 或共享类型依赖时 |
-| 架构边界 | `make lint-arch` | 修改跨模块依赖、API client、后端分层时 |
-| 格式检查 | `make lint-format` | 提交前或修改 TS、Vue、样式后 |
-| 自动格式化 | `make format` | 格式检查失败且可自动修复时 |
-| 构建 | `make build` | 修改构建配置、公共类型、后端或前端入口后 |
-| 测试 | `make test` | 修改业务逻辑、API、组件行为或权限后 |
-| 全量检查 | `make check` | 交付前或改动影响面不确定时 |
+| 检查       | 命令                   | 什么时候跑                               |
+| ---------- | ---------------------- | ---------------------------------------- |
+| 依赖边界   | `scripts/lint-deps.sh` | 修改 `server/`、`web/` 或共享类型依赖时  |
+| 架构边界   | `make lint-arch`       | 修改跨模块依赖、API client、后端分层时   |
+| 格式检查   | `make lint-format`     | 提交前或修改 TS、Vue、样式后             |
+| 自动格式化 | `make format`          | 格式检查失败且可自动修复时               |
+| 构建       | `make build`           | 修改构建配置、公共类型、后端或前端入口后 |
+| 测试       | `make test`            | 修改业务逻辑、API、组件行为或权限后      |
+| 全量检查   | `make check`           | 交付前或改动影响面不确定时               |
 
 命令失败时不要静默跳过；最终回复必须说明失败命令、关键错误和未覆盖风险。
 
@@ -148,21 +146,21 @@ curl -i \
 
 参考优先级：当前源码和测试 > 当前仓库文档 > `docs/design-docs/ref-*.md` > `reference-projects/*` > 历史经验。
 
-| 参考项目 | 用途 | 导航 |
-| --- | --- | --- |
-| `reference-projects/pro-components/` | 私域 Vue 组件库、表单、表格、弹窗模式 | `docs/design-docs/ref-pro-components.md` |
-| `reference-projects/other-product-backend/` | 相邻产品 NestJS 模块划分、DTO、错误码和权限点 | `docs/design-docs/ref-other-product-backend.md` |
+| 参考项目                                     | 用途                                                        | 导航                                             |
+| -------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------ |
+| `reference-projects/pro-components/`         | 私域 Vue 组件库、表单、表格、弹窗模式                       | `docs/design-docs/ref-pro-components.md`         |
+| `reference-projects/other-product-backend/`  | 相邻产品 NestJS 模块划分、DTO、错误码和权限点               | `docs/design-docs/ref-other-product-backend.md`  |
 | `reference-projects/other-product-frontend/` | 相邻产品 Vue 3 页面组织、API client、Pinia store 和组件模式 | `docs/design-docs/ref-other-product-frontend.md` |
 
 参考项目只读，作为模式参考，不作为当前项目事实。引用参考项目时先读对应 `ref-*.md`，再看源码。
 
 ## 9. 文档导航
 
-| 文档 | 什么时候读 |
-| --- | --- |
-| `docs/architecture.md` | 理解整体结构、依赖边界、领域模型和数据流 |
-| `docs/development.md` | 安装、启动、数据库、env、命令来源和本地环境 |
-| `docs/design-docs/api-design.md` | 修改 REST API、响应格式、错误码和端点 |
-| `docs/design-docs/controller-conventions.md` | 修改 NestJS Controller、DTO 和响应约定 |
-| `docs/design-docs/frontend-architecture.md` | 修改 Vue 页面、组件、store、API client |
-| `docs/design-docs/ref-*.md` | 查看参考项目用途、优先级和注意事项 |
+| 文档                                         | 什么时候读                                  |
+| -------------------------------------------- | ------------------------------------------- |
+| `docs/architecture-backend.md`               | 修改 NestJS 分层、依赖边界、DTO/VO、Entity 和领域模型 |
+| `docs/architecture-frontend.md`              | 修改 Vue 页面、组件、composable、store、API client |
+| `docs/development.md`                        | 安装、启动、数据库、env、命令来源和本地环境 |
+| `docs/design-docs/api-design.md`             | 修改 REST API、响应格式、错误码和端点       |
+| `docs/design-docs/controller-conventions.md` | 修改 NestJS Controller、DTO 和响应约定      |
+| `docs/design-docs/ref-*.md`                  | 查看参考项目用途、优先级和注意事项          |

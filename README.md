@@ -45,7 +45,8 @@
 常见输出包括：
 
 - `AGENTS.md`：仓库级 AI 指令入口。
-- `docs/architecture.md`：总体架构和模块关系。
+- `docs/architecture-backend.md`：后端分层架构、依赖规则和领域模型。
+- `docs/architecture-frontend.md`：前端分层架构、依赖规则、状态管理和 API 边界。
 - `docs/development.md`：开发环境、依赖安装、本地启动和常用命令。
 - `docs/backend.md` 或 `docs/backend/*.md`：后端目录、服务边界和核心子系统。
 - `docs/frontend.md` 或 `docs/frontend/*.md`：前端路由、API 层、组件和状态管理约定。
@@ -83,7 +84,7 @@
 
 ## 1. 项目概述
 
-一段话：项目定位、技术栈（Spring Boot + React）、monorepo 结构。
+一段话：项目定位、技术栈（NestJS + Vue 3）、monorepo 结构。
 
 ## 2. 快速命令
 
@@ -97,13 +98,13 @@
 
 核心子系统简要说明。
 
-→ 详见 `docs/architecture.md`
+→ 详见 `docs/architecture-backend.md`
 
 ## 4. 前端架构
 
 技术栈、路由方案、API 层约定、组件库规范。
 
-→ 详见 `docs/design-docs/frontend-architecture.md`
+→ 详见 `docs/architecture-frontend.md`
 
 ## 5. 关键约定
 
@@ -146,8 +147,8 @@ project-root/
   README.md                         # 给人看的项目说明
   Makefile                          # 质量检查统一入口（lint-arch/format/build/test）
 
-  server/                           # 后端（Spring Boot）
-  web/                              # 前端（React + TypeScript）
+  server/                           # 后端（NestJS）
+  web/                              # 前端（Vue 3 + TypeScript）
   user-guide/                       # 用户手册（Markdown，AI 基于代码生成）
 
   scripts/
@@ -156,13 +157,13 @@ project-root/
     lint-deps.sh                    # 分层依赖检查脚本
 
   docs/
-    architecture.md                 # 分层架构、依赖规则、领域模型
+    architecture-backend.md         # 后端分层架构、依赖规则、领域模型
+    architecture-frontend.md        # 前端分层架构、依赖规则、状态管理
     development.md                  # 环境要求、构建运行、数据库
     design-docs/
       api-design.md                 # 响应格式、错误码、端点详情
       controller-conventions.md     # Controller 层编码规范
       gateway-integration.md        # 网关对接详细文档
-      frontend-architecture.md      # 前端架构、组件库规范
       ref-higress.md                # 参考：Higress 网关内核
       ref-nacos.md                  # 参考：Nacos 注册配置中心
       ref-pro-components.md         # 参考：私域组件库

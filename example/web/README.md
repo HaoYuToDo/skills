@@ -24,5 +24,4 @@ web/
     views/
 ```
 
-详细前端约定见 `../docs/design-docs/frontend-architecture.md`。
-
+详细前端约定见 `../docs/architecture-frontend.md`。

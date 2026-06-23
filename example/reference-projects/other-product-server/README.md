@@ -1,4 +1,4 @@
-# ef-other-product-server
+# other-product-server
 
 只读参考项目占位：其他产品后端。
 

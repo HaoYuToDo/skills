@@ -149,7 +149,7 @@ curl -i \
 | 参考项目                                     | 用途                                                        | 导航                                             |
 | -------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------ |
 | `reference-projects/pro-components/`         | 私域 Vue 组件库、表单、表格、弹窗模式                       | `docs/design-docs/ref-pro-components.md`         |
-| `reference-projects/ef-other-product-server/` | 相邻产品 NestJS 模块划分、DTO、错误码和权限点               | `docs/design-docs/ef-other-product-server.md`    |
+| `reference-projects/other-product-server/` | 相邻产品 NestJS 模块划分、DTO、错误码和权限点               | `docs/design-docs/other-product-server.md`    |
 | `reference-projects/other-product-web/`       | 相邻产品 Vue 3 页面组织、API client、Pinia store 和组件模式 | `docs/design-docs/other-product-web.md`          |
 
 参考项目只读，作为模式参考，不作为当前项目事实。引用参考项目时先读对应 `ref-*.md`，再看源码。

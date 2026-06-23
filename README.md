@@ -166,7 +166,7 @@ project-root/
       ref-higress.md                # 参考：Higress 网关内核
       ref-nacos.md                  # 参考：Nacos 注册配置中心
       ref-pro-components.md         # 参考：私域组件库
-      ef-other-product-server.md    # 参考：其他产品后端
+      other-product-server.md    # 参考：其他产品后端
       other-product-web.md          # 参考：其他产品前端
       ref-himarket.md               # 参考：HiMarket AI 开放平台
 
@@ -174,7 +174,7 @@ project-root/
     higress/                        # 开源 Higress 网关内核源码
     nacos/                          # 开源 Nacos 源码
     pro-components/                 # 私域组件库源码
-    ef-other-product-server/        # 其他产品后端
+    other-product-server/        # 其他产品后端
     other-product-web/              # 其他产品前端
     himarket/                       # 开源 HiMarket AI 开放平台
 ```

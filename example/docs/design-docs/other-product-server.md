@@ -1,8 +1,8 @@
-# 参考项目：ef-other-product-server
+# 参考项目：other-product-server
 
 用途：参考相邻产品后端的 NestJS 模块划分、DTO、错误码和权限点。
 
-位置：`reference-projects/ef-other-product-server/`
+位置：`reference-projects/other-product-server/`
 
 使用规则：
 

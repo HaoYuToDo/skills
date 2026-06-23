@@ -60,11 +60,11 @@ example/
     design-docs/
       api-design.md
       ref-pro-components.md
-      ef-other-product-server.md
+      other-product-server.md
       other-product-web.md
   reference-projects/
     pro-components/
-    ef-other-product-server/
+    other-product-server/
     other-product-web/
 ```
 

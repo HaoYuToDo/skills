@@ -1,6 +1,6 @@
 ---
 name: agents-md-maintainer
-description: 创建、审查、规范化和拆分面向 AI Coding Agent 的 AGENTS.md 项目指令文件。当用户用中文或英文要求创建或改进 AGENTS.md、审查 Agent 指令、转换 CLAUDE.md/Cursor/Copilot/Gemini/Cline 规则、精简 AI 规则、补充真实构建/测试/验证命令，或把过长指引拆到 docs 时使用。
+description: 创建、审查、规范化和拆分面向 AI Coding Agent 的 AGENTS.md 项目指令文件。当用户用中文或英文要求创建或改进 AGENTS.md、审查现有 AGENTS.md 是否像手册、精简 AI 规则、补充真实构建/测试/验证命令，或把过长指引拆到 docs 时使用。
 ---
 
 # AGENTS.md Maintainer
@@ -13,24 +13,24 @@ description: 创建、审查、规范化和拆分面向 AI Coding Agent 的 AGEN
 
 保留命令、路径、包名、API 名称、代码标识符和工具名称的原文。
 
-## 核心规则
+## 第一原则：渐进式披露
 
-把 `AGENTS.md` 当成项目地图，而不是开发手册。
+`AGENTS.md` 的第一原则是渐进式披露：它是一张项目地图，不是一本开发手册。
 
-根目录 `AGENTS.md` 只保留：
+只有两类内容应该直接写进根目录 `AGENTS.md`：
 
-- AI 建立项目心智模型必需的信息：项目用途、技术栈、仓库结构、重要模块、架构边界。
-- 违反后容易写错代码的硬规则：命名规则、依赖边界、禁止模式、必须执行的验证步骤。
-- 从仓库真实文件中发现的命令和验证流程。
-- 指向详细文档、源码、schema、类型定义或参考项目的短链接。
+- AI 理解项目全貌的必要信息：技术栈、仓库结构、核心模块、分层架构。
+- 违反会直接导致问题的硬性规则：编码规约、命名约定、依赖边界、禁止项、必须执行的验证步骤。
 
-教程、长示例、实现细节、模块深潜和“只是让代码更好”的建议，应移出根 `AGENTS.md`。
+判断标准：如果 AI 不知道这条信息就会写出错误代码，放进 `AGENTS.md`；如果只是写出不够好的代码，放进详细文档，`AGENTS.md` 里只保留摘要和链接。
 
-判断标准：AI 不知道就会写错代码的内容留在 `AGENTS.md`；只会影响质量或理解深度的内容，放到详细文档并在根文件链接。
+因此，教程、长示例、实现细节、模块深潜、背景知识和“只是让代码更好”的建议，应移出根 `AGENTS.md`。根文件可以保留从仓库真实文件中发现的关键命令、最小验证闭环，以及指向详细文档、源码、schema、类型定义或参考项目的短链接。
+
+本 skill 应能作为独立目录导入其他项目使用，不依赖本仓库的 `example/` 目录。`example/` 只是维护本 skill 时可参考的示例产物。
 
 ## 工作流程
 
-1. 编辑前先检查仓库：文件列表、manifest、构建文件、包管理器文件、CI workflow、现有文档，以及已有 Agent 指令文件，例如 `AGENTS.md`、`CLAUDE.md`、`.cursorrules`、`.cursor/rules`、`.github/copilot-instructions.md`、`GEMINI.md`、`.clinerules`、`AGENT.md`。
+1. 编辑前先检查仓库：文件列表、manifest、构建文件、包管理器文件、CI workflow、现有文档，以及已有 `AGENTS.md`。
 2. 从权威来源发现命令：`package.json`、`Makefile`、`pnpm-workspace.yaml`、`turbo.json`、`pyproject.toml`、`Cargo.toml`、`go.mod`、`pom.xml`、Gradle 文件、Docker Compose、脚本和 CI workflow。不要编造命令。
 3. 如果缺少 `AGENTS.md`，在仓库根目录创建；如果已经存在，保留正确的项目专属规则，只提升清晰度、真实性和可维护性。
 4. 如果现有指令过长或像手册，优先拆到已有文档；没有合适位置时，在 `docs/` 下创建最少必要文档。
@@ -123,8 +123,6 @@ lint、format、build、test 命令矩阵。
 - 优先使用源码、schema、类型定义、脚本和 CI 中的事实。
 - 不写“保持代码整洁”这类泛泛建议，除非项目有明确标准和检查方式。
 - 不确定的信息要标为假设，或先不写入规则。
-- 合并多个工具指令文件时，冲突规则优先采用更具体、更新、离当前仓库更近的版本。
-- 避免在 `AGENTS.md`、`CLAUDE.md`、Cursor rules、Copilot instructions 等文件中重复维护同一规则。优先让其他文件指向 `AGENTS.md`，或至少保持一致。
 - 示例必须短且贴合当前仓库；长示例拆到文档。
 - 可以记录敏感配置的位置和优先级，但不要建议提交密钥或本地私有配置。
 
@@ -160,7 +158,6 @@ lint、format、build、test 命令矩阵。
 - 根文件只保留硬规则和高价值导航。
 - 验证流程具体，不只是“运行测试”。
 - 详细内容通过链接渐进披露，而不是复制进根文件。
-- 其他 Agent 指令文件没有冲突规则。
 - 最终回复说明改了什么、运行了什么验证、哪些信息仍是假设。
 
 ## 最终回复

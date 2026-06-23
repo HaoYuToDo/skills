@@ -1,8 +1,10 @@
 # AGENTS.md
 
+第一原则：`AGENTS.md` 是渐进式披露的项目地图，不是开发手册。根文件只直接保留两类内容：AI 理解项目全貌的必要信息，以及违反会直接导致问题的硬性规则。判断标准：AI 不知道就会写出错误代码的内容放进 `AGENTS.md`；只是让代码写得不够好的背景、教程、长示例和模块细节放进详细文档，根文件只保留链接。
+
 ## 1. 项目概述
 
-本项目是一个 Vue 3 + NestJS 前后端分离应用示例：`web/` 是 Vue 3 + TypeScript + Vite + Vue Router + Pinia 前端，`server/` 是 NestJS + TypeScript REST API 后端，`user-guide/` 存放用户手册，`scripts/` 存放启动和检查脚本，`docs/` 存放架构、开发、接口和参考项目说明，`reference-projects/` 是只读参考源码。根 `AGENTS.md` 只保留 AI 不知道就容易写错代码的项目地图、硬规则、验证闭环和文档导航；长教程、接口细节和模块深潜放在 `docs/`。
+本项目是一个 Vue 3 + NestJS 前后端分离应用示例：`web/` 是 Vue 3 + TypeScript + Vite + Vue Router + Pinia 前端，`server/` 是 NestJS + TypeScript REST API 后端，`user-guide/` 存放用户手册，`scripts/` 存放启动和检查脚本，`docs/` 存放架构、开发、接口和参考项目说明，`reference-projects/` 是只读参考源码。根 `AGENTS.md` 只保留项目地图、硬规则、关键命令、最小验证闭环和文档导航；长教程、接口细节和模块深潜放在 `docs/`。
 
 ```text
 project-root/

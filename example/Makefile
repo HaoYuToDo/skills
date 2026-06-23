@@ -3,8 +3,7 @@
 .PHONY: lint-arch lint-format format build test check
 
 lint-arch:
-	@echo "示例：运行 scripts/lint-deps.sh 检查 server/web 依赖边界"
-	@scripts/lint-deps.sh
+	@echo "示例：检查 server/web 依赖边界；真实项目应替换为实际架构检查命令"
 
 lint-format:
 	@echo "示例：运行 pnpm lint 和格式化检查"
@@ -25,4 +24,3 @@ test:
 
 check: lint-arch lint-format test build
 	@echo "示例：全量质量检查完成"
-

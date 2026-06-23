@@ -52,7 +52,6 @@ example/
   scripts/
     start-server.sh
     start-web.sh
-    lint-deps.sh
   docs/
     architecture-server.md
     architecture-web.md

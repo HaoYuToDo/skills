@@ -154,7 +154,6 @@ project-root/
   scripts/
     start-server.sh                 # 后端一键启动（构建+启动+健康检查）
     start-web.sh                    # 前端一键启动
-    lint-deps.sh                    # 分层依赖检查脚本
 
   docs/
     architecture-server.md          # 后端分层架构、依赖规则、领域模型

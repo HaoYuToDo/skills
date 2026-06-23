@@ -193,7 +193,6 @@ make check
 ```bash
 scripts/start-server.sh
 scripts/start-web.sh
-scripts/lint-deps.sh
 ```
 
 ### 启动后端
@@ -265,7 +264,7 @@ pnpm build
 | 后端 Controller、Service、DTO、Repository | `make test`，必要时 curl 成功和失败路径 |
 | 前端页面、组件、composable、store、API client | `make lint-format`，启动前端做浏览器 smoke check |
 | API 字段、错误码、权限点 | 后端测试、前端 API client、相关页面、`docs/design-docs/api-design.md` |
-| 依赖边界、跨模块 import | `scripts/lint-deps.sh` 或 `make lint-arch` |
+| 依赖边界、跨模块 import | `make lint-arch` |
 | 构建配置、入口文件、公共类型 | `make build` |
 
 全量交付前执行：

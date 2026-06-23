@@ -1,10 +1,8 @@
 # AGENTS.md
 
-这是一个 Vue 3 + NestJS 项目的 AI Coding 指令示例。仓库假设采用 `web/` 前端、`server/` 后端、`user-guide/` 用户手册、`scripts/` 启动脚本、`docs/design-docs/` 设计细节、`reference-projects/` 只读参考项目结构。根文件只保留 AI 不知道就容易写错代码的项目地图、硬规则、验证闭环和文档导航；长教程、接口细节和模块深潜都放在 `docs/`。
-
 ## 1. 项目概述
 
-本项目示例模拟一个前后端分离应用：前端位于 `web/`，使用 Vue 3 + TypeScript + Vite + Vue Router + Pinia 承载页面、组件、路由和状态管理；后端位于 `server/`，使用 NestJS + TypeScript 提供 REST API、认证鉴权、DTO validation、业务服务和数据访问；`user-guide/` 存放面向用户的 Markdown 手册；`docs/` 存放架构、开发、接口和参考项目说明。
+本项目是一个 Vue 3 + NestJS 前后端分离应用示例：`web/` 是 Vue 3 + TypeScript + Vite + Vue Router + Pinia 前端，`server/` 是 NestJS + TypeScript REST API 后端，`user-guide/` 存放用户手册，`scripts/` 存放启动和检查脚本，`docs/` 存放架构、开发、接口和参考项目说明，`reference-projects/` 是只读参考源码。根 `AGENTS.md` 只保留 AI 不知道就容易写错代码的项目地图、硬规则、验证闭环和文档导航；长教程、接口细节和模块深潜放在 `docs/`。
 
 ```text
 project-root/
@@ -28,7 +26,6 @@ project-root/
 | 安装依赖     | `pnpm install`            |
 | 启动前端     | `scripts/start-web.sh`    |
 | 启动后端     | `scripts/start-server.sh` |
-| 依赖边界检查 | `scripts/lint-deps.sh`    |
 | 架构检查     | `make lint-arch`          |
 | 格式化检查   | `make lint-format`        |
 | 自动格式化   | `make format`             |
@@ -107,10 +104,9 @@ web/src/
 
 ## 6. 本地开发及验证流程
 
-最小闭环：改动后先运行与改动相关的依赖边界检查、类型检查、lint、测试或构建，再启动对应服务做 smoke test。
+最小闭环：改动后先运行与改动相关的架构边界检查、类型检查、lint、测试或构建，再启动对应服务做 smoke test。
 
 ```bash
-scripts/lint-deps.sh
 make lint-arch
 make lint-format
 make test
@@ -132,7 +128,6 @@ curl -i \
 
 | 检查       | 命令                   | 什么时候跑                               |
 | ---------- | ---------------------- | ---------------------------------------- |
-| 依赖边界   | `scripts/lint-deps.sh` | 修改 `server/`、`web/` 或共享类型依赖时  |
 | 架构边界   | `make lint-arch`       | 修改跨模块依赖、API client、后端分层时   |
 | 格式检查   | `make lint-format`     | 提交前或修改 TS、Vue、样式后             |
 | 自动格式化 | `make format`          | 格式检查失败且可自动修复时               |

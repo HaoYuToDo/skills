@@ -65,7 +65,7 @@ server/src/
 - 鉴权层：guard/filter/interceptor/pipe 统一处理认证、权限、异常和响应包装。
 - 契约层：DTO、错误码和响应结构必须和前端 API client、用户手册同步。
 
-详见 `docs/architecture-backend.md` 和 `docs/design-docs/controller-conventions.md`。
+详见 `docs/architecture-server.md` 和 `docs/design-docs/api-design.md`。
 
 ## 4. 前端架构
 
@@ -90,16 +90,16 @@ web/src/
 - Pinia 只承载跨页面状态；页面局部 loading、弹窗开关和表单草稿留在组件或 composable。
 - API 字段、错误码和响应格式以后端 DTO、共享类型或 schema 为准，禁止在组件里复制 DTO。
 
-详见 `docs/architecture-frontend.md`。
+详见 `docs/architecture-web.md`。
 
 ## 5. 关键约定
 
 - 不要编造命令。新增或修改命令前先查 `Makefile`、`package.json`、`scripts/`、CI 和 README。
 - 不要把根 `AGENTS.md` 写成教程；长示例、curl 集合、模块细节放入 `docs/` 后在根文件链接。
-- 前端页面不直接请求后端；所有 HTTP 调用必须经过 `web/src/api/*`，详见 `docs/architecture-frontend.md`。
+- 前端页面不直接请求后端；所有 HTTP 调用必须经过 `web/src/api/*`，详见 `docs/architecture-web.md`。
 - Vue 组件使用 Composition API 和 `<script setup lang="ts">`；props/emits 必须 typed，复杂逻辑抽到 composable。
 - Pinia store 只承载跨页面状态；页面局部状态不要提升到全局。
-- NestJS Controller 只处理路由、参数、DTO 和响应码；业务规则放 Service，数据库访问放 Repository/DAO，详见 `docs/design-docs/controller-conventions.md`。
+- NestJS Controller 只处理路由、参数、DTO 和响应码；业务规则放 Service，数据库访问放 Repository/DAO，详见 `docs/architecture-server.md`。
 - NestJS 禁止在 Controller 写业务逻辑，禁止绕过 DTO validation，禁止直接返回未脱敏实体。
 - 修改 API 字段、错误码、枚举、权限点时，必须检查 `server/`、`web/`、`docs/design-docs/api-design.md` 和 `user-guide/`。
 - 安全相关改动必须检查鉴权、权限、日志脱敏和前端敏感信息暴露。
@@ -149,8 +149,8 @@ curl -i \
 | 参考项目                                     | 用途                                                        | 导航                                             |
 | -------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------ |
 | `reference-projects/pro-components/`         | 私域 Vue 组件库、表单、表格、弹窗模式                       | `docs/design-docs/ref-pro-components.md`         |
-| `reference-projects/other-product-backend/`  | 相邻产品 NestJS 模块划分、DTO、错误码和权限点               | `docs/design-docs/ref-other-product-backend.md`  |
-| `reference-projects/other-product-frontend/` | 相邻产品 Vue 3 页面组织、API client、Pinia store 和组件模式 | `docs/design-docs/ref-other-product-frontend.md` |
+| `reference-projects/ef-other-product-server/` | 相邻产品 NestJS 模块划分、DTO、错误码和权限点               | `docs/design-docs/ef-other-product-server.md`    |
+| `reference-projects/other-product-web/`       | 相邻产品 Vue 3 页面组织、API client、Pinia store 和组件模式 | `docs/design-docs/other-product-web.md`          |
 
 参考项目只读，作为模式参考，不作为当前项目事实。引用参考项目时先读对应 `ref-*.md`，再看源码。
 
@@ -158,9 +158,8 @@ curl -i \
 
 | 文档                                         | 什么时候读                                  |
 | -------------------------------------------- | ------------------------------------------- |
-| `docs/architecture-backend.md`               | 修改 NestJS 分层、依赖边界、DTO/VO、Entity 和领域模型 |
-| `docs/architecture-frontend.md`              | 修改 Vue 页面、组件、composable、store、API client |
+| `docs/architecture-server.md`               | 修改 NestJS 分层、依赖边界、DTO/VO、Entity 和领域模型 |
+| `docs/architecture-web.md`                  | 修改 Vue 页面、组件、composable、store、API client |
 | `docs/development.md`                        | 安装、启动、数据库、env、命令来源和本地环境 |
 | `docs/design-docs/api-design.md`             | 修改 REST API、响应格式、错误码和端点       |
-| `docs/design-docs/controller-conventions.md` | 修改 NestJS Controller、DTO 和响应约定      |
 | `docs/design-docs/ref-*.md`                  | 查看参考项目用途、优先级和注意事项          |

@@ -7,9 +7,9 @@
 ## 如何阅读
 
 1. 先读 `AGENTS.md`：它是 AI Agent 的入口，只保留项目地图、硬规则、真实命令摘要和文档导航。
-2. 需要理解后端架构时，读 `docs/architecture-backend.md`；需要理解前端架构时，读 `docs/architecture-frontend.md`。
+2. 需要理解后端架构时，读 `docs/architecture-server.md`；需要理解前端架构时，读 `docs/architecture-web.md`。
 3. 需要安装、启动、构建和配置环境时，读 `docs/development.md`。
-4. 需要修改接口或后端 Controller 约定时，读 `docs/design-docs/*`。
+4. 需要修改接口或后端 Controller 约定时，读 `docs/design-docs/api-design.md` 和 `docs/architecture-server.md`。
 5. 需要查看只读参考项目时，读 `reference-projects/` 和 `docs/design-docs/ref-*.md`。
 
 ## 文件读者
@@ -54,19 +54,18 @@ example/
     start-web.sh
     lint-deps.sh
   docs/
-    architecture-backend.md
-    architecture-frontend.md
+    architecture-server.md
+    architecture-web.md
     development.md
     design-docs/
       api-design.md
-      controller-conventions.md
       ref-pro-components.md
-      ref-other-product-backend.md
-      ref-other-product-frontend.md
+      ef-other-product-server.md
+      other-product-web.md
   reference-projects/
     pro-components/
-    other-product-backend/
-    other-product-frontend/
+    ef-other-product-server/
+    other-product-web/
 ```
 
 ## 使用方式

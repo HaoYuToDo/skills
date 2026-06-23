@@ -32,4 +32,4 @@ server/
         repositories/
 ```
 
-详细后端架构见 `../docs/architecture-backend.md`，Controller 约定见 `../docs/design-docs/controller-conventions.md`。
+详细后端架构和 Controller 分层约定见 `../docs/architecture-server.md`。

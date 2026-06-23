@@ -45,11 +45,11 @@
 常见输出包括：
 
 - `AGENTS.md`：仓库级 AI 指令入口。
-- `docs/architecture-backend.md`：后端分层架构、依赖规则和领域模型。
-- `docs/architecture-frontend.md`：前端分层架构、依赖规则、状态管理和 API 边界。
+- `docs/architecture-server.md`：后端分层架构、依赖规则和领域模型。
+- `docs/architecture-web.md`：前端分层架构、依赖规则、状态管理和 API 边界。
 - `docs/development.md`：开发环境、依赖安装、本地启动和常用命令。
-- `docs/backend.md` 或 `docs/backend/*.md`：后端目录、服务边界和核心子系统。
-- `docs/frontend.md` 或 `docs/frontend/*.md`：前端路由、API 层、组件和状态管理约定。
+- `docs/server.md` 或 `docs/server/*.md`：后端目录、服务边界和核心子系统。
+- `docs/web.md` 或 `docs/web/*.md`：前端路由、API 层、组件和状态管理约定。
 - `docs/validation.md`：本地验证、curl、浏览器检查和日志排查流程。
 - `docs/conventions.md`：编码约定、组件模式和长示例。
 - `docs/design-docs/ref-*.md` 或 `docs/references/*.md`：参考项目、私有组件或相邻系统导航。
@@ -98,13 +98,13 @@
 
 核心子系统简要说明。
 
-→ 详见 `docs/architecture-backend.md`
+→ 详见 `docs/architecture-server.md`
 
 ## 4. 前端架构
 
 技术栈、路由方案、API 层约定、组件库规范。
 
-→ 详见 `docs/architecture-frontend.md`
+→ 详见 `docs/architecture-web.md`
 
 ## 5. 关键约定
 
@@ -157,26 +157,25 @@ project-root/
     lint-deps.sh                    # 分层依赖检查脚本
 
   docs/
-    architecture-backend.md         # 后端分层架构、依赖规则、领域模型
-    architecture-frontend.md        # 前端分层架构、依赖规则、状态管理
+    architecture-server.md          # 后端分层架构、依赖规则、领域模型
+    architecture-web.md             # 前端分层架构、依赖规则、状态管理
     development.md                  # 环境要求、构建运行、数据库
     design-docs/
       api-design.md                 # 响应格式、错误码、端点详情
-      controller-conventions.md     # Controller 层编码规范
       gateway-integration.md        # 网关对接详细文档
       ref-higress.md                # 参考：Higress 网关内核
       ref-nacos.md                  # 参考：Nacos 注册配置中心
       ref-pro-components.md         # 参考：私域组件库
-      ref-other-product-backend.md  # 参考：其他产品后端
-      ref-other-product-frontend.md # 参考：其他产品前端
+      ef-other-product-server.md    # 参考：其他产品后端
+      other-product-web.md          # 参考：其他产品前端
       ref-himarket.md               # 参考：HiMarket AI 开放平台
 
   reference-projects/               # 参考项目（git submodule，只读）
     higress/                        # 开源 Higress 网关内核源码
     nacos/                          # 开源 Nacos 源码
     pro-components/                 # 私域组件库源码
-    other-product-backend/          # 其他产品后端
-    other-product-frontend/         # 其他产品前端
+    ef-other-product-server/        # 其他产品后端
+    other-product-web/              # 其他产品前端
     himarket/                       # 开源 HiMarket AI 开放平台
 ```
 

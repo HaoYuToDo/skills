@@ -46,12 +46,12 @@ description: 创建、审查、规范化和拆分面向 AI Coding Agent 的 AGEN
 | --- | --- | --- |
 | `AGENTS.md` | AI Coding 入口 | 心智模型、真实命令、硬规则、验证闭环、文档导航 |
 | `README.md` | 人类项目说明 | 必要时交叉链接；不要复制完整 AI 规则 |
-| `docs/architecture-backend.md` | 后端分层、依赖规则、领域模型 | 后端架构摘要和链接 |
-| `docs/architecture-frontend.md` | 前端分层、依赖规则、状态和 API 边界 | 前端架构摘要和链接 |
+| `docs/architecture-server.md` | 后端分层、依赖规则、领域模型 | 后端架构摘要和链接 |
+| `docs/architecture-web.md` | 前端分层、依赖规则、状态和 API 边界 | 前端架构摘要和链接 |
 | `docs/development.md` | 环境、安装、启动、常用命令 | 命令摘要和链接 |
 | `docs/validation.md` | 测试、curl、浏览器检查、日志、Token | 最小验证流程和链接 |
 | `docs/conventions.md` | 命名、编码约定、通用规则 | 关键硬规则和链接 |
-| `docs/backend*.md` / `docs/frontend*.md` | 子系统细节 | 子系统摘要和链接 |
+| `docs/server*.md` / `docs/web*.md` | 子系统细节 | 子系统摘要和链接 |
 | `docs/design-docs/*` / `docs/patterns/*` | 组件模式、ADR、模块深潜、参考导航 | 一句话导航 |
 | `reference-projects/*` | 只读参考源码 | 参考优先级和导航链接 |
 
@@ -140,12 +140,12 @@ lint、format、build、test 命令矩阵。
 
 默认拆分位置：
 
-- 后端架构和模块关系：`docs/architecture-backend.md`
-- 前端架构和模块关系：`docs/architecture-frontend.md`
+- 后端架构和模块关系：`docs/architecture-server.md`
+- 前端架构和模块关系：`docs/architecture-web.md`
 - 环境和命令：`docs/development.md`
 - 验证、日志、Token、浏览器或 curl 检查：`docs/validation.md`
 - 编码约定和命名规则：`docs/conventions.md`
-- 后端或前端细节：`docs/backend.md`、`docs/frontend.md` 或对应子目录
+- 后端或前端细节：`docs/server.md`、`docs/web.md` 或对应子目录
 - 组件模式和长示例：`docs/patterns/` 或 `docs/design-docs/`
 - 参考项目、私有框架、相邻系统：`docs/design-docs/ref-*.md` 或 `docs/references/*.md`
 

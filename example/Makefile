@@ -7,20 +7,20 @@ lint-arch:
 
 lint-format:
 	@echo "示例：运行 pnpm lint 和格式化检查"
-	@pnpm lint
-	@pnpm format:check
+	@echo "示例命令：pnpm lint"
+	@echo "示例命令：pnpm format:check"
 
 format:
 	@echo "示例：自动格式化"
-	@pnpm format
+	@echo "示例命令：pnpm format"
 
 build:
 	@echo "示例：构建 Vue 3 前端和 NestJS 后端"
-	@pnpm build
+	@echo "示例命令：pnpm build"
 
 test:
 	@echo "示例：运行单元测试和集成测试"
-	@pnpm test
+	@echo "示例命令：pnpm test"
 
 check: lint-arch lint-format test build
 	@echo "示例：全量质量检查完成"

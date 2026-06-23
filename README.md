@@ -7,7 +7,7 @@
 ## 目录结构
 
 ```text
-skills/
+skills/                  # GitHub 仓库根目录；本地 checkout 名称可以不同
   README.md
   skills/
     agents-md-maintainer/

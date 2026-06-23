@@ -25,7 +25,7 @@
 | `user-guide/` | 人为主，AI 可生成 | 用户手册目录示例 |
 | `docs/*.md` | AI 为主，人可参考 | 架构、开发、设计细节和参考导航 |
 | `reference-projects/*` | AI 只读 | 参考项目源码占位，不作为当前项目事实 |
-| `CLAUDE.md` / `.cursorrules` / `.github/copilot-instructions.md` | 对应工具 | 桥接到 `AGENTS.md`，避免重复维护 |
+| `CLAUDE.md` | Claude | 桥接到 `AGENTS.md`，避免重复维护 |
 
 ## 示例项目假设
 
@@ -43,9 +43,6 @@ example/
   README.md
   Makefile
   CLAUDE.md
-  .cursorrules
-  .github/
-    copilot-instructions.md
   server/
   web/
   user-guide/

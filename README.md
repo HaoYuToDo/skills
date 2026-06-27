@@ -14,6 +14,12 @@ skills/                  # GitHub 仓库根目录；本地 checkout 名称可以
   skills/
     agents-md-maintainer/
       SKILL.md              # 可独立导入其他项目或 Codex skills 目录的 skill
+    vue-*/                  # 从 vuejs-ai/skills 同步的 Vue 相关 skills
+  vendor/
+    vuejs-ai/
+      skills/               # vuejs-ai/skills 的上游 skills 快照
+  scripts/
+    sync-vuejs-ai-skills.ps1 # 同步 vuejs-ai/skills 的脚本
   example/
     AGENTS.md               # 期望产物示例
     docs/                   # 拆分后的详细文档示例
@@ -51,6 +57,45 @@ cp -R skills/agents-md-maintainer ~/.codex/skills/
 ```text
 检查这个 AGENTS.md 有没有太像手册，帮我拆到 docs/
 ```
+
+## vuejs-ai skills 同步
+
+本仓库还同步了 [`vuejs-ai/skills`](https://github.com/vuejs-ai/skills.git) 的 Vue 相关 skills。同步采用两层结构：
+
+- `vendor/vuejs-ai/skills/<skill-name>/`：上游 `skills/` 目录的快照，作为可追溯来源。
+- `skills/<skill-name>/`：当前项目实际可用的 skill 目录。
+
+每个从上游同步来的 active skill 都包含 `SYNC.md`：
+
+```md
+# Sync Info
+
+- **Source:** `vendor/vuejs-ai/skills/<skill-name>`
+- **Git SHA:** `<upstream-git-sha>`
+- **Synced:** `<yyyy-mm-dd>`
+```
+
+`SYNC.md` 用来记录这个 skill 来自哪个 vendored 快照、对应哪个上游提交，以及本地同步日期。以后上游更新时，可以通过它判断当前 skill 是否已经落后。
+
+同步到上游 `main` 最新版本：
+
+```powershell
+.\scripts\sync-vuejs-ai-skills.ps1
+```
+
+同步到指定上游提交：
+
+```powershell
+.\scripts\sync-vuejs-ai-skills.ps1 -GitSha c9d355ff23f654309dd02006be671859df0a134c
+```
+
+校验当前仓库是否与指定上游提交一致：
+
+```powershell
+.\scripts\sync-vuejs-ai-skills.ps1 -GitSha c9d355ff23f654309dd02006be671859df0a134c -Check
+```
+
+脚本只会同步上游存在的 skill 名称；本仓库自有的 `skills/agents-md-maintainer/` 保持独立维护，不写 `SYNC.md`。
 
 ## 示例
 
